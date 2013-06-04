@@ -31,8 +31,8 @@ set(CONFIG_ADD_OPTIONS "")
 			OUTPUT ${TOOL_TARGET_BUILD_OUTPUT}
 			COMMAND COMMAND test -e ${CMAKE_CURRENT_SOURCE_DIR}/${TOOL_TARGET_SOURCE} || wget http://www.ffmpeg.org/releases/${TOOL_TARGET_SOURCE} -O ${CMAKE_CURRENT_SOURCE_DIR}/${TOOL_TARGET_SOURCE}
 			COMMAND tar -xjvf ${CMAKE_CURRENT_SOURCE_DIR}/${TOOL_TARGET_SOURCE}
-			COMMAND cd ${CMAKE_BINARY_DIR}/${TOOL_TARGET_DIR} && ${target_platform_preconfigure_options} ./configure --prefix=${CMAKE_BINARY_DIR} --disable-yasm --enable-cross-compile --target-os=linux --arch=arm6 --cross-prefix=${target_platform}- ${CONFIG_ADD_OPTIONS}
-			COMMAND cd ${CMAKE_BINARY_DIR}/${TOOL_TARGET_DIR} && make -j4 && make install
+			COMMAND cd ${TOOL_TARGET_DIR} && ${target_platform_preconfigure_options} ./configure --prefix=${CMAKE_BINARY_DIR} --disable-yasm --enable-cross-compile --target-os=linux --arch=arm6 --cross-prefix=${target_platform}- ${CONFIG_ADD_OPTIONS}
+			COMMAND cd ${TOOL_TARGET_DIR} && make -j4 && make install
 			WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
 			COMMENT ${TOOL_TARGET_COMMENT}
 		)
@@ -41,8 +41,8 @@ set(CONFIG_ADD_OPTIONS "")
 			OUTPUT ${TOOL_TARGET_BUILD_OUTPUT}
 			COMMAND COMMAND test -e ${CMAKE_CURRENT_SOURCE_DIR}/${TOOL_TARGET_SOURCE} || wget http://www.ffmpeg.org/releases/${TOOL_TARGET_SOURCE} -O ${CMAKE_CURRENT_SOURCE_DIR}/${TOOL_TARGET_SOURCE}
 			COMMAND tar -xjvf ${CMAKE_CURRENT_SOURCE_DIR}/${TOOL_TARGET_SOURCE}
-			COMMAND cd ${CMAKE_BINARY_DIR}/${TOOL_TARGET_DIR} && ${target_platform_preconfigure_options} ./configure --prefix=${CMAKE_BINARY_DIR} --disable-yasm ${CONFIG_ADD_OPTIONS}
-			COMMAND cd ${CMAKE_BINARY_DIR}/${TOOL_TARGET_DIR} && make -j4 && make install
+			COMMAND cd ${TOOL_TARGET_DIR} && ${target_platform_preconfigure_options} ./configure --prefix=${CMAKE_BINARY_DIR} --disable-yasm ${CONFIG_ADD_OPTIONS}
+			COMMAND cd ${TOOL_TARGET_DIR} && make -j4 && make install
 			WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
 			COMMENT ${TOOL_TARGET_COMMENT}
 		)
